@@ -6,6 +6,10 @@ echo "*** Homebrew formulas ***"
 echo "*************************"
 echo
 
+brew tap caskroom/cask
+brew tap phinze/homebrew-cask
+brew tap buo/cask-upgrade
+
 formulas=(
 
     ### TOOLS ###
@@ -17,7 +21,6 @@ formulas=(
     bash-completion2
     duti
     tmux
-    cask
 
     ### LANGUAGES ###
     python3

@@ -18,6 +18,7 @@ fi
 add_config_symbolic_links () {
 	ln -sfv "$DOTFILES_DIR/config/git/.gitconfig" ~
 	ln -sfv "$DOTFILES_DIR/config/git/.gitignore" ~
+	git config --global core.excludesfile ~/.gitignore
 }
 
 echo

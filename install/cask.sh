@@ -21,6 +21,7 @@ applications_to_install=(
     #superduper # Recoveries
     Bitwarden # password
     ticktick # to-do app
+    appcleaner
 
     # Browsers
     firefox
@@ -43,29 +44,30 @@ applications_to_install=(
     iina
     #vlc
     spotify
+    transmission
 
     ### OTHERS ###
     # mactracker
     # cyberduck # FTP
     # transmit # FTP. Paid application
-    #little-snitch # Network analyzer
+    # little-snitch # Network analyzer
     # hammerspoon # This is a tool for powerful automation of OS X
     # spark # Shortcuts manager
-    #android-file-transfer
-    #cheatsheet
+    # android-file-transfer
+    # cheatsheet
     # virtualbox #  virtualization software
     # duet # Ipad to screen
-    #bitbar
-    #gpgtools # GPG Keychain and more GPG stuff
-    #sqlitestudio # See SQL squemas
-    #kindle
-    #send-to-kindle
-    #simpless
-    #clamxav # antivirus
-    #easyfind # finder with steroids
+    # bitbar
+    # gpgtools # GPG Keychain and more GPG stuff
+    # sqlitestudio # See SQL squemas
+    # kindle
+    # send-to-kindle
+    # simpless
+    # clamxav # antivirus
+    # easyfind # finder with steroids
 )
 
-brew cask install "${applications_to_install[@]}"
+brew cask install install --appdir="~/Applications" "${applications_to_install[@]}"
 
 ########################################################
 ### Launch the following applications to set them up ###
@@ -85,3 +87,6 @@ do
     echo "=> Opening:" $i
     open -a "$i"
 done
+
+brew cleanup --force
+rm -f -r /Library/Caches/Homebrew/*

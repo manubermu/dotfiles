@@ -27,3 +27,6 @@
 	$ cd /Users/<your_username>/Documents/dotfiles
 	$ chmod +x dotfiles.sh && ./dotfiles.sh
 	```
+
+
+brew update;brew cu
