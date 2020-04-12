@@ -1,0 +1,56 @@
+[user]
+    name = "Manuel Bermúdez Martínez"
+    email = manuel.009ab@gmail.com
+
+[github]
+    user = ManuBermu
+
+[core]
+    excludesfile = ~/config/git/.gitignore
+    filemode = false # set true means file mode permission changes are considered changes.
+    trustctime = false
+    ignorecase = true
+
+[alias]
+    st = status
+    sts = status -sb
+    stl = ls-files -m -o --exclude-standard
+    l  = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg = log --pretty=oneline --graph --abbrev-commit
+    ll = log -p
+    df = diff --word-diff
+
+[credential]
+    helper = osxkeychain # credential.helper=osxkeychain
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+
+[color "branch"]
+    current = green reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[color "diff-highlight"]
+    oldNormal = "red bold"
+    oldHighlight = "red bold 52"
+    newNormal = "green bold"
+    newHighlight = "green bold 22"
+
+[help]
+    autocorrect = 1
+
+[merge]
+    tool = opendiff
