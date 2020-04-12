@@ -17,6 +17,7 @@ formulas=(
     bash-completion2
     duti
     tmux
+    cask
 
     ### LANGUAGES ###
     python3
