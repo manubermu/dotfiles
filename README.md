@@ -1,20 +1,13 @@
-# dotfiles
+# Manuel's dotfiles
 
 ### Repository index
 - [Welcome to Dotfiles!](#welcome)
 - [Installation Guide](#install)
  	- [Dotfiles on your local computer](#install)
- 	- [From Google drive (or other cloud service)](#install_cloud)
-- [How to: Uninstall Dotfiles](#uninstall)
-- [Contribute to this repository](#contribute)
-- [New to Dotfiles? Don't be panic!](#newbie)
-- [Special thanks](#thanks)
-- [Contact](#contact)
-
 
 # <a name="install"></a>Installation Guide
 
-**Note:** Tested on OS X Sierra 10.12.0 and El Capitan 10.11.4 using iMac (Mid 2011) and Mac Book Pro Retina (Early 2015).
+**Note:** Tested on macOS Mojave 10.14.6 Mac Mini (Mid 2011).
 
 1. Open the **Terminal** app.
 	- Option 1. Go to /Applications/Utilities and click on Terminal icon.
