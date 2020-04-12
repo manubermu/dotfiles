@@ -20,6 +20,7 @@ add_config_symbolic_links () {
 	ln -sfv "$DOTFILES_DIR/config/git/.gitignore" ~
 }
 
+echo
 read -p "=> Do you want to add symbolic links? [y/n]: "
 if [ "$REPLY" == "y" ]; then
   clear # clear the screen
@@ -30,6 +31,7 @@ fi
 ### Install Programs and binaries ###
 #####################################
 
+echo
 read -p "=> Do you want to install all your scripts inside $DOTFILES_DIR/install? [y/n]: "
 
 if [ "$REPLY" == "y" ]; then
@@ -45,6 +47,7 @@ fi
 ### zsh plugins ###
 ###################
 
+echo
 read -p "=> Do you want to install zsh plugins? [y/n]: "
 
 if [ "$REPLY" == "y" ]; then
@@ -76,4 +79,10 @@ echo
 read -p "=> Do you want to modify the macOS system? [y/n]: "
 if [ "$REPLY" == "y" ]; then
   . "$DOTFILES_DIR/osx/launch.sh"
+fi
+
+echo
+read -p "=> Do you want to modify the Sublime Text 3 extensions? [y/n]: "
+if [ "$REPLY" == "y" ]; then
+  . "$DOTFILES_DIR/osx/duti/set.sh"
 fi
