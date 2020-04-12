@@ -40,6 +40,28 @@ if [ "$REPLY" == "y" ]; then
 
 fi
 
+
+###################
+### zsh plugins ###
+###################
+
+read -p "=> Do you want to install zsh plugins? [y/n]: "
+
+if [ "$REPLY" == "y" ]; then
+	if [ "$0" == *"zsh" ]; then
+	    echo "Installing plugins to" $ZSH_CUSTOM
+
+	    # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+	    brew install zsh-syntax-highlighting
+
+	    # https://github.com/zsh-users/zsh-autosuggestions
+	    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+	else
+	    # oh-my-zsh
+	    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	fi
+fi
+
 ######################
 ### SET UP FOLDERS ###
 ######################
@@ -51,7 +73,7 @@ if [ "$REPLY" == "y" ]; then
 fi
 
 echo
-read -p "=> Do you want to modify the Dock? [y/n]: "
+read -p "=> Do you want to modify the macOS system? [y/n]: "
 if [ "$REPLY" == "y" ]; then
   . "$DOTFILES_DIR/osx/launch.sh"
 fi

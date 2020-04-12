@@ -24,6 +24,8 @@ echo
 
 #echo "Done. Some changes may require a logout/restart to take effect."
 
+. "$DOTFILES_DIR/osx/osx_config.sh"
+
 #################################
 ### Setting dock applications ###
 #################################
