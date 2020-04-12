@@ -15,6 +15,7 @@ formulas=(
     git-lfs
     dockutil # Add/remove dock icons
     bash-completion2
+    duti
 
     ### LANGUAGES ###
     python3
