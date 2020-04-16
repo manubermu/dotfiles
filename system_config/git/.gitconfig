@@ -3,10 +3,10 @@
     email = manuel.009ab@gmail.com
 
 [github]
-    user = ManuBermu
+    user = manubermu
 
 [core]
-    excludesfile = ~/config/git/.gitignore
+	excludesfile = /Users/manubermu/.gitignore
     filemode = false # set true means file mode permission changes are considered changes.
     trustctime = false
     ignorecase = true

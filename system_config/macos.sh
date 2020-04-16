@@ -18,8 +18,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Add Symbolic links to configuration files                                   #
 ###############################################################################
 
-ln -sfv "$DOTFILES_DIR/config/git/.gitconfig" ~
-ln -sfv "$DOTFILES_DIR/config/git/.gitignore" ~
+ln -sfv "$DOTFILES_DIR/system_config/git/.gitconfig" ~
+ln -sfv "$DOTFILES_DIR/system_config/git/.gitignore" ~
 git config --global core.excludesfile ~/.gitignore
 
 ###############################################################################
