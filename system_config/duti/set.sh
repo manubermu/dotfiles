@@ -3,7 +3,7 @@
 # Set default handlers/programs for file-types
 # Dependency: duti (brew install duti)
 
-DUTI_DIR=$DOTFILES_DIR/osx/duti
+DUTI_DIR=$DOTFILES_DIR/system_config/duti
 
 # IINA (media files)
 #while read -r ext; do
