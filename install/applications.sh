@@ -3,9 +3,6 @@
 # DATE: 2020-04-16
 # VERSION: 1.0
 
-###############################################################################
-# Launch script                                                               #
-###############################################################################
 
 # Entering as Root
 printf "Enter root password...\n"
@@ -19,7 +16,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Install Homebrew apps
-printf "📦 Installing Apps...\n"
+printf "📲 Installing Apps...\n"
 brew bundle $DOTFILES_DIR/install/profile/Brewfile
 
 ###############################################################################
@@ -37,5 +34,5 @@ do
 done
 
 # Cleanup
-printf "📦 Cleanup and final touches...\n"
+printf "🍺 Cleanup...\n"
 brew doctor && brew update && brew cleanup && brew upgrade && brew cask upgrade && mas upgrade

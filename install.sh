@@ -4,14 +4,14 @@
 # VERSION: 1.0
 
 ###############################################################################
-# Set variables                                                               #
+# Variables                                                                   #
 ###############################################################################
 
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ###############################################################################
-# Menu                                                                        #
+# Options                                                                     #
 ###############################################################################
 
 while :
@@ -33,13 +33,13 @@ do
 EOF
     read -n1 -s
     case "$REPLY" in
-    "1")  echo "Ready to install Homebrew..."            | $DOTFILES_DIR/install/hombrew.sh ;;
-    "2")  echo "Ready to install macOS..."               | $DOTFILES_DIR/install/applications.sh ;;
-    "3")  echo "Ready to configure macOS"                | $DOTFILES_DIR/config/macos.sh ;;
-    "4")  echo "Ready to configure extensions"           | $DOTFILES_DIR/config/duti/set.sh ;;
-    "5")  echo "Ready to install/configure zsh"          | $DOTFILES_DIR/zsh/zsh.sh ;;
+    "1")  echo "Installing Homebrew..."                  | $DOTFILES_DIR/install/hombrew.sh ;;
+    "2")  echo "Installing macOS's applications..."      | $DOTFILES_DIR/install/applications.sh ;;
+    "3")  echo "Configuring macOS's settings..."         | $DOTFILES_DIR/config/macos.sh ;;
+    "4")  echo "Configuring extensions..."               | $DOTFILES_DIR/config/duti/set.sh ;;
+    "5")  echo "Installing and configuring zsh..."       | $DOTFILES_DIR/zsh/zsh.sh ;;
     "0")  exit                                                                   ;;
-     * )  echo "Invalid option!"                                                 ;;
+     * )  echo "Oops! Invalid option!"                                                 ;;
     esac
     sleep 1
 done

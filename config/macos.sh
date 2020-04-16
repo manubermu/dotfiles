@@ -3,10 +3,6 @@
 # DATE: 2020-04-16
 # VERSION: 1.0
 
-###############################################################################
-# Launch script                                                               #
-###############################################################################
-
 # Entering as Root
 printf "Enter root password...\n"
 sudo -v
@@ -18,6 +14,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Configure Git                                                               #
 ###############################################################################
 
+printf "💻 Configuring Git"
 sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 sudo rm -rf ~/.gitignore > /dev/null 2>&1
 cp $DOTFILES_DIR/config/git/.gitconfig ~
@@ -31,17 +28,17 @@ git config --global core.excludesfile ~/.gitignore
 git_folders=(
   Github
 )
-printf "📦 Creating folders...\n"
+
+printf "🗂 Creating folders...\n"
 for FOLDER in "${git_folders[@]}"
 do
-	mkdir -p "$HOME/Documents/$FOLDER" # -p => creates parent directory if not exists
+	mkdir -p "$HOME/Documents/$FOLDER"
 done
 
 ###############################################################################
 # Configure Python                                                            #
 ###############################################################################
 
-# ⚙️ Download Python libraries [1/1]
 printf "⚙️ Download Python libraries...\n"
 pip3 install jupyter
 pip3 install numpy
@@ -53,7 +50,7 @@ pip3 install virtualenv
 # Configure macOS: Dock                                                       #
 ###############################################################################
 
-printf "⚙️ Configuring Dock...\n"
+printf "💻 Configuring Dock...\n"
 dockutil --no-restart --remove all
 dockutil --no-restart --add '/Applications/Calendar.app'
 dockutil --no-restart --add '/Applications/Safari.app'

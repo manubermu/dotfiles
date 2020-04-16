@@ -6,10 +6,6 @@
 # Set default handlers/programs for file-types
 # Dependency: duti (brew install duti)
 
-###############################################################################
-# Launch script                                                               #
-###############################################################################
-
 DUTI_DIR=$DOTFILES_DIR/config/duti
 
 ###############################################################################
@@ -24,6 +20,7 @@ DUTI_DIR=$DOTFILES_DIR/config/duti
 # Sublime Text                                                                #
 ###############################################################################
 
+printf "🗒 Setting Sublime Text extensions...\n"
 while read -r ext; do
   duti -s com.sublimetext.3 "$ext" all
 done <"${DUTI_DIR}/sourcecode.txt"
