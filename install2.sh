@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# DATE: 2020-01-11
-# VERSION: 1.9.2
+# DATE: 2020-04-16
+# VERSION: 1.0
 
 ###############################################################################
 # Set variables                                                               #
@@ -9,6 +9,20 @@
 
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+###############################################################################
+# Set permission                                                              #
+###############################################################################
+
+for INSTALLFILE in "$DOTFILES_DIR"/install/*.sh; do
+    chmod +x INSTALLFILE
+done
+for INSTALLFILE in "$DOTFILES_DIR"/system_config/*.sh; do
+    chmod +x INSTALLFILE
+done
+for INSTALLFILE in "$DOTFILES_DIR"/system_config/duti/*.sh; do
+    chmod +x INSTALLFILE
+done
 
 ###############################################################################
 # Menu                                                                        #

@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+# DATE: 2020-04-16
+# VERSION: 1.0
 
 # Set default handlers/programs for file-types
 # Dependency: duti (brew install duti)
