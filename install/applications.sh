@@ -20,11 +20,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install Homebrew apps
 printf "📦 Installing Apps...\n"
-brew bundle $DOTFILES_DIR/install/profiles/personal
+brew bundle $DOTFILES_DIR/install/profile/Brewfile
 
-########################################################
-### Launch the following applications to set them up ###
-########################################################
+###############################################################################
+# Launch the following applications to set them up                            #
+###############################################################################
 
 applications_to_open=(
     spotify # Connect account
