@@ -20,8 +20,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 sudo rm -rf ~/.gitignore > /dev/null 2>&1
-cp "$DOTFILES_DIR/config/git/.gitconfig" ~
-cp "$DOTFILES_DIR/config/git/.gitignore" ~
+cp $DOTFILES_DIR/config/git/.gitconfig ~
+cp $DOTFILES_DIR/config/git/.gitignore ~
 git config --global core.excludesfile ~/.gitignore
 
 ###############################################################################
