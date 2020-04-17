@@ -4,12 +4,12 @@
 
 ## Repository index
 - [Welcome!](#welcome)
-- [Why would I want my dotfiles on GitHub?] (#why)
+- [Why would I want my dotfiles on GitHub?](#why)
 - [Installation Guide](#install)
- 	- [Dotfiles on your local computer] (#install)
-- [Contribute] (#contribute)
-- [Acknowledgements] (#acknowledgements)
-- [My social networks] (#social)
+ 	- [Dotfiles on your local computer](#install)
+- [Contribute](#contribute)
+- [Acknowledgements](#acknowledgements)
+- [My social networks](#social)
  	
 ## <a name="welcome"></a>Welcome!
 
