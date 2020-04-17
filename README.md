@@ -1,9 +1,7 @@
 ![Dotfiles](doc/img/logo-dotfiles.png)
 
-# Manuel's dotfiles
-
 ## Repository index
-- [Welcome!](#welcome)
+- [What is a Dotfile?](#what)
 - [Why would I want my dotfiles on GitHub?](#why)
 - [Installation Guide](#install)
  	- [Dotfiles on your local computer](#install)
@@ -11,7 +9,11 @@
 - [Acknowledgements](#acknowledgements)
 - [My social networks](#social)
  	
-## <a name="welcome"></a>Welcome!
+## <a name="what"></a>What is a Dotfile?
+
+According to Drew Barontini:
+
+> Dotfiles is a name used to denote a set of configuration files (generally hidden ones with a . before the filename) that are used to set up and configure various applications and settings, such as: Bash. Git. Vim. Sublime Text"
 
 ## <a name="why"></a>Why would I want my dotfiles on GitHub?
 
@@ -47,11 +49,11 @@ Share what you’ve learned with the rest of us.
 
 	![Options Menu](doc/img/options-menu.png)
 	
-	1. **Install Homebrew:**
-	2. **Install Applications:**
-	3. **Configure macOS:**
-	4. **Configure extensions:**
-	5. **Install/Configure zsh:**
+	1. **Install Homebrew:** First install `XCode CL tools` and then `Homebrew`.
+	2. **Install Applications:** It installs all the applications collected in the file `Brewfile`, located in `/install/profile/`
+	3. **Configure macOS:** Configure Git, create _dev_ folders, download Python libraries, configure _Dock_, _Finder_ and `Transmission.app`.
+	4. **Configure extensions:** Reads the extensions of a plain text file and sets as default editor `Sublime Text 3.app` and media player `IINA.app`
+	5. **Install/Configure zsh:** Install and configure `Zsh` and download plugins.
 	6. **Exit:** Finish the execution of the script.
 
 ## <a name="ontribute"></a>Contribute

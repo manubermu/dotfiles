@@ -14,4 +14,3 @@ cask "iina"
 cask "iterm2"
 cask "spotify"
 cask "transmission"
-mas "Spark", id: 1176895641

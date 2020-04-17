@@ -35,4 +35,4 @@ done
 
 # Cleanup
 printf "🍺 Cleanup...\n"
-brew doctor && brew update && brew cleanup && brew upgrade && brew cask upgrade && mas upgrade
+brew doctor && brew update && brew cleanup && brew upgrade && brew cask upgrade
