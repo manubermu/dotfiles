@@ -1,6 +1,6 @@
 ![Dotfiles](doc/img/logo-dotfiles.png)
 
-##📋 Index
+## 📋 Index
 - [What is a Dotfile?](#what)
 - [Why would I want my dotfiles on GitHub?](#why)
 - [Installation Guide](#install)
