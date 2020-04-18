@@ -1,14 +1,31 @@
 #!/bin/bash
 
-# DATE: 2020-04-16
-# VERSION: 1.0
-
 ###############################################################################
 # Variables                                                                   #
 ###############################################################################
 
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+###############################################################################
+# Change permissions                                                          #
+###############################################################################
+
+for DEFAULTS_FILE in "$DOTFILES_DIR"/install/*.sh; do
+    chmod +x $DEFAULTS_FILE
+done
+
+for DEFAULTS_FILE in "$DOTFILES_DIR"/config/*.sh; do
+    chmod +x $DEFAULTS_FILE
+done
+
+for DEFAULTS_FILE in "$DOTFILES_DIR"/config/duti/*.sh; do
+    chmod +x $DEFAULTS_FILE
+done
+
+for DEFAULTS_FILE in "$DOTFILES_DIR"/sh/*.sh; do
+    chmod +x $DEFAULTS_FILE
+done
 
 ###############################################################################
 # Options                                                                     #

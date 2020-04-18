@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# DATE: 2020-04-16
-# VERSION: 1.0
-
 # Entering as Root
 printf "Enter root password...\n"
 sudo -v
@@ -14,7 +11,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Configure Git                                                               #
 ###############################################################################
 
-printf "💻 Configuring Git"
+printf "💻 Configuring Git...\n"
 sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 sudo rm -rf ~/.gitignore > /dev/null 2>&1
 cp $DOTFILES_DIR/config/git/.gitconfig ~
@@ -32,7 +29,7 @@ git_folders=(
 printf "🗂 Creating folders...\n"
 for FOLDER in "${git_folders[@]}"
 do
-	mkdir -p "$HOME/Documents/$FOLDER"
+	mkdir -p "$HOME/Documents/dev/$FOLDER"
 done
 
 ###############################################################################
@@ -41,6 +38,7 @@ done
 
 printf "⚙️ Download Python libraries...\n"
 pip3 install jupyter
+pip3 install matplotlib
 pip3 install numpy
 pip3 install pandas
 pip3 install requests
@@ -65,9 +63,9 @@ dockutil --add '~/Downloads' --view grid --display folder --allhomes
 
 printf "⚙️ Configuring Finder...\n"
 printf "⚙️ Finder: show file extension\n"
-defaults write -g AppleShowAllExtensions -bool true
+defaults write -g AppleShowAllExtensions -bool false
 printf "⚙️ Finder: show hidden files\n"
-defaults write com.apple.finder AppleShowAllFiles true
+defaults write com.apple.finder AppleShowAllFiles false
 printf "⚙️ Finder: show Library folder\n"
 chflags nohidden ~/Library
 printf "⚙️ Finder: show path bar\n"
@@ -86,17 +84,20 @@ defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 printf "⚙️ Finder: show full path\n"
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
-printf "⚙️ Finder: turn off window opening animation\n"
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
 printf "⚙️ Finder: turn off file info animation\n"
 defaults write com.apple.finder DisableAllAnimations -bool true
-printf "⚙️ Finder: Enable AirDrop over Ethernet and on unsupported Macs running Lion\n"
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 printf "⚙️ Finder: Expand save dialog by default\n"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 printf "⚙️ Finder: Prevent Time Machine from prompting to use new hard drives as backup volume\n"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+###############################################################################
+# Configure macOS: Safari.app                                                 #
+###############################################################################
+
+printf "⚙️ Safari: Enable Safari’s debug menu\n"
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 ###############################################################################
 # Configure macOS: Transmission.app                                           #

@@ -1,21 +1,21 @@
 ![Dotfiles](doc/img/logo-dotfiles.png)
 
-## Repository index
+##📋 Index
 - [What is a Dotfile?](#what)
 - [Why would I want my dotfiles on GitHub?](#why)
 - [Installation Guide](#install)
- 	- [Dotfiles on your local computer](#install)
+- [Organization of the repository](#organization)
 - [Contribute](#contribute)
 - [Acknowledgements](#acknowledgements)
 - [My social networks](#social)
  	
-## <a name="what"></a>What is a Dotfile?
+## <a name="what"></a>🙋‍♂️ What is a Dotfile?
 
-According to Drew Barontini:
+According to [Matthew Broberg](https://opensource.com/article/19/3/move-your-dotfiles-version-control):
 
-> Dotfiles is a name used to denote a set of configuration files (generally hidden ones with a . before the filename) that are used to set up and configure various applications and settings, such as: Bash. Git. Vim. Sublime Text"
+> "Dotfiles" is a common term for all the configuration files we have floating around our machines. These files usually start with a . at the beginning of the filename, like .gitconfig, and operating systems often hide them by default.
 
-## <a name="why"></a>Why would I want my dotfiles on GitHub?
+## <a name="why"></a>🤷‍♂️ Why would I want my dotfiles on GitHub?
 
 According to [here](https://dotfiles.github.io):
 
@@ -23,13 +23,11 @@ According to [here](https://dotfiles.github.io):
 Learn from the community. Discover new tools for your toolbox and new tricks for the ones you already use.
 Share what you’ve learned with the rest of us.
 
-## <a name="install"></a>Installation Guide
+## <a name="install"></a>💻 Installation Guide
 
 **Note:** Tested on macOS Mojave 10.14.6 Mac Mini (Mid 2011).
 
 1. Open the **Terminal** app.
-	- Option 1. Go to /Applications/Utilities and click on Terminal icon.
-	- Option 2. Open spotlight (command ⌘ + space), type "Terminal" and click enter.
 
 2. Clone this repository on your on your /Documents directory and enter to the created directory.
 
@@ -39,12 +37,12 @@ Share what you’ve learned with the rest of us.
 	$ cd dotfiles
 	```
 
-3. Run `./install.sh` located on your dotfiles folder.
+3. Run the script `./install.sh` located on your folder.
 
 	```bash
-	$ cd /Users/<your_username>/Documents/dotfiles
 	$ chmod +x install.sh && ./install.sh
 	```
+	
 4. Now, a menu will appear with the different options offered by the script:
 
 	![Options Menu](doc/img/options-menu.png)
@@ -56,26 +54,61 @@ Share what you’ve learned with the rest of us.
 	5. **Install/Configure zsh:** Install and configure `Zsh` and download plugins.
 	6. **Exit:** Finish the execution of the script.
 
-## <a name="ontribute"></a>Contribute
+## <a name="organization"></a>🗂 Organization of the repository
+
+After reading documentation and seeing examples on Github about the _dotfiles_, I realized that each person has a different organization of them.
+
+Therefore, I have adapted all of them to my way of programming and keeping the documents in my computer. The result can be seen in the following tree:
+
+```
+.
+├── LICENSE
+├── README.md
+├── config
+│   ├── duti
+│   │   ├── iina.txt
+│   │   ├── set.sh
+│   │   └── sourcecode.txt
+│   ├── git
+│   └── macos.sh
+├── doc
+│   └── img
+│       ├── logo-dotfiles.png
+│       └── options-menu.png
+├── install
+│   ├── applications.sh
+│   ├── hombrew.sh
+│   └── profile
+│       └── Brewfile
+├── install.sh
+├── iterm
+│   └── com.googlecode.iterm2.plist
+└── zsh
+    └── zsh.sh
+
+```
+## <a name="contribute"></a>💬 Contribute
 
 This project as I started as something personal but any help, criticism or improvement is welcome.
 
-* Reporting problems or suggesting new improvements can be done by [opening a new Issue](https://github.com/manubermu/dotfiles/issues). Explain the functionality or problem you found.
+* To report any kind of problem or suggest modifications/additions, you can do it by creating an [new issue](https://github.com/manubermu/dotfiles/issues).
 
-* Have you made improvements on the code and want to appear on the project? [Propose a pull request](https://github.com/manubermu/dotfiles/pulls).
+* Have you done better in the code and want to share it? [Propose a pull request](https://github.com/manubermu/dotfiles/pulls).
 
-## <a name="acknowledgements"></a>Acknowledgements
+## <a name="acknowledgements"></a>👏 Acknowledgements
 
 I would like to thank the following developers, who have published their dotfiles publicly for everyone to see. Thanks to them I have been able to realize this small project that I hope will help other developers.
 
 * [@mathiasbynens](https://github.com/mathiasbynens) and his [dotfiles](https://github.com/mathiasbynens/dotfiles)
 * [@MarioCatuogno](https://github.com/MarioCatuogno) and his [dotfiles](https://github.com/MarioCatuogno/Clean-macOS)
 
-## <a name="social"></a>My social networks
+Main image extracted from [Github does dotfiles](https://dotfiles.github.io)
+
+## <a name="social"></a>📱 My social networks
 
 You can find me on the following social networks:
 
 * **Twitter:** [https://twitter.com/manubermu](https://twitter.com/manubermu)
 * **LinkedIn:** [https://www.linkedin.com/in/manuelbermudezmartinez/](https://www.linkedin.com/in/manuelbermudezmartinez/)
 * **Website:** [manubermu.com](https://manubermu.com)
-* **Mail:** [manubermu@pm.me](manubermu@pm.me)
+* **Mail:** [manubermu@pm.me](mailto:manubermu@pm.me)

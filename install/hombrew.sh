@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# DATE: 2020-04-16
-# VERSION: 1.0
-
 # Entering as Root
 printf "Enter root password...\n"
 sudo -v
