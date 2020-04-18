@@ -25,11 +25,11 @@ Share what you’ve learned with the rest of us.
 
 ## <a name="install"></a>💻 Installation Guide
 
-**Note:** Tested on macOS Mojave 10.14.6 Mac Mini (Mid 2011).
+**Note:** Tested on macOS Mojave 10.14.6 Mac Mini (Mid 2011) with [macOS Mojave Patcher Tool for Unsupported Macs](http://dosdude1.com/mojave/).
 
 1. Open the **Terminal** app.
 
-2. Clone this repository on your on your /Documents directory and enter to the created directory.
+2. Clone this repository on your on your /Documents directory and enter to the created directory. (If you don't have git installed on your computer, you can download the latest version from [here](https://github.com/manubermu/dotfiles/releases).)
 
 	```Bash
 	$ cd /Users/<your_username>/Documents
@@ -47,12 +47,12 @@ Share what you’ve learned with the rest of us.
 
 	![Options Menu](doc/img/options-menu.png)
 	
-	1. **Install Homebrew:** First install `XCode CL tools` and then `Homebrew`.
-	2. **Install Applications:** It installs all the applications collected in the file `Brewfile`, located in `/install/profile/`
-	3. **Configure macOS:** Configure Git, create _dev_ folders, download Python libraries, configure _Dock_, _Finder_ and `Transmission.app`.
-	4. **Configure extensions:** Reads the extensions of a plain text file and sets as default editor `Sublime Text 3.app` and media player `IINA.app`
-	5. **Install/Configure zsh:** Install and configure `Zsh` and download plugins.
-	6. **Exit:** Finish the execution of the script.
+	* **Install Homebrew:** First install `XCode CL tools` and then `Homebrew`.
+	* **Install Applications:** It installs all the applications collected in the file `Brewfile`, located in `/install/profile/`
+	* **Configure macOS:** Configure Git, create _dev_ folders, download Python libraries, configure _Dock_, _Finder_ and `Transmission.app`.
+	* **Configure extensions:** Reads the extensions of a plain text file and sets as default editor `Sublime Text 3.app` and media player `IINA.app`
+	* **Install/Configure zsh:** Install and configure `Zsh` and download plugins.
+	* **Exit:** Finish the execution of the script.
 
 ## <a name="organization"></a>🗂 Organization of the repository
 
