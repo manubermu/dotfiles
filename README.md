@@ -1,5 +1,12 @@
 ![Dotfiles](doc/img/logo-dotfiles.png)
 
+<div align="center">
+
+[![License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](https://github.com/manubermu/dotfiles/blob/master/LICENSE)
+[![Version](https://img.shields.io/github/v/release/manubermu/dotfiles.svg?style=flat-square)](https://github.com/manubermu/dotfiles/releases)
+
+</div>
+
 ## 📋 Index
 - [What is a Dotfile?](#what)
 - [Why would I want my dotfiles on GitHub?](#why)
