@@ -1,3 +1,4 @@
+brew "alfred"
 brew "dockutil"
 brew "git"
 brew "git-lfs"
