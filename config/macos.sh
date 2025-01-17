@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Entering as Root
-printf "Enter root password...\n"
+printf "🔑 Enter root password...\n"
 sudo -v
 
 # Keep alive Root
@@ -12,10 +12,9 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 printf "💻 Configuring Git...\n"
-sudo rm -rf ~/.gitconfig > /dev/null 2>&1
-sudo rm -rf ~/.gitignore > /dev/null 2>&1
-cp $DOTFILES_DIR/config/git/.gitconfig ~
-cp $DOTFILES_DIR/config/git/.gitignore ~
+sudo rm -rf ~/.gitconfig ~/.gitignore > /dev/null 2>&1
+cp "$DOTFILES_DIR/config/git/.gitconfig" ~
+cp "$DOTFILES_DIR/config/git/.gitignore" ~
 git config --global core.excludesfile ~/.gitignore
 
 ###############################################################################
@@ -23,7 +22,7 @@ git config --global core.excludesfile ~/.gitignore
 ###############################################################################
 
 git_folders=(
-  Github
+  github
 )
 
 printf "🗂 Creating folders...\n"
@@ -36,93 +35,67 @@ done
 # Configure Python                                                            #
 ###############################################################################
 
-printf "⚙️ Download Python libraries...\n"
-pip3 install jupyter
-pip3 install matplotlib
-pip3 install numpy
-pip3 install pandas
-pip3 install requests
-pip3 install virtualenv
+printf "🐍 Installing Python package manager (uv)...\n"
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 ###############################################################################
 # Configure macOS: Dock                                                       #
 ###############################################################################
 
-printf "💻 Configuring Dock...\n"
+printf "🚀 Configuring Dock...\n"
 dockutil --no-restart --remove all
-dockutil --no-restart --add '/Applications/Calendar.app'
 dockutil --no-restart --add '/Applications/Safari.app'
-dockutil --no-restart --add "/Applications/iTerm.app"
+dockutil --no-restart --add '/Applications/Mail.app'
+dockutil --no-restart --add '/Applications/Calendar.app'
+dockutil --no-restart --add '/Applications/Slack.app'
 dockutil --no-restart --add "/Applications/Visual Studio Code.app"
+dockutil --no-restart --add "/Applications/Ghostty.app"
 dockutil --add '~/Downloads' --view grid --display folder --allhomes
 
 ###############################################################################
 # Configure macOS: Finder                                                     #
 ###############################################################################
 
-printf "⚙️ Configuring Finder...\n"
-printf "⚙️ Finder: show file extension\n"
+printf "📂 Configuring Finder...\n"
+
+# Show/Hide settings
 defaults write -g AppleShowAllExtensions -bool false
-printf "⚙️ Finder: show hidden files\n"
 defaults write com.apple.finder AppleShowAllFiles false
-printf "⚙️ Finder: show Library folder\n"
 chflags nohidden ~/Library
-printf "⚙️ Finder: show path bar\n"
 defaults write com.apple.finder ShowPathbar -bool true
-printf "⚙️ Finder: set list view by default\n"
+
+# View settings
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-printf "⚙️ Finder: keep folders on top\n"
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
-printf "⚙️ Finder: disable creation of metadata files on Network and USB\n"
+
+# Performance & Behavior
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-printf "⚙️ Finder: remove open-with duplicates\n"
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
-printf "⚙️ Finder: show HD icons on Desktop\n"
+
+# Desktop & Window settings
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
-printf "⚙️ Finder: show full path\n"
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
-printf "⚙️ Finder: turn off file info animation\n"
 defaults write com.apple.finder DisableAllAnimations -bool true
-printf "⚙️ Finder: Expand save dialog by default\n"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-printf "⚙️ Finder: Prevent Time Machine from prompting to use new hard drives as backup volume\n"
+
+# Time Machine
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 ###############################################################################
-# Configure macOS: Safari.app                                                 #
+# Configure macOS: Safari                                                     #
 ###############################################################################
 
-printf "⚙️ Safari: Enable Safari’s debug menu\n"
+printf "🧭 Configuring Safari...\n"
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 ###############################################################################
-# Configure macOS: Transmission.app                                           #
+# Apply Changes                                                               #
 ###############################################################################
 
-printf "⚙️ Transmission: Use `~/Documents/Torrents` to store incomplete downloads\n"
-defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Documents/Torrents"
-printf "⚙️ Transmission: Use `~/Downloads` to store completed downloads\n"
-defaults write org.m0k.transmission DownloadLocationConstant -bool true
-printf "⚙️ Transmission: Don’t prompt for confirmation before downloading\n"
-defaults write org.m0k.transmission DownloadAsk -bool false
-defaults write org.m0k.transmission MagnetOpenAsk -bool false
-printf "⚙️ Transmission: Don’t prompt for confirmation before removing non-downloading active transfers\n"
-defaults write org.m0k.transmission CheckRemoveDownloading -bool true
-printf "⚙️ Transmission: Trash original torrent files\n"
-defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
-printf "⚙️ Transmission: Hide the donate message\n"
-defaults write org.m0k.transmission WarningDonate -bool false
-printf "⚙️ Transmission: Hide the legal disclaimer\n"
-defaults write org.m0k.transmission WarningLegal -bool false
-
-###############################################################################
-# Kill affected applications                                                  #
-###############################################################################
-
+printf "🔄 Restarting affected applications...\n"
 for app in "Address Book" "Calendar" "Contacts" "Dock" "Finder" "Mail" "SystemUIServer" "iCal"; do
     killall "${app}" &> /dev/null
 done

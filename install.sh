@@ -1,14 +1,55 @@
 #!/bin/bash
 
 ###############################################################################
-# Variables                                                                   #
+# Variables                                                                     #
 ###############################################################################
 
 export DOTFILES_DIR
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
 ###############################################################################
-# Change permissions                                                          #
+# Helper functions                                                              #
+###############################################################################
+
+print_message() {
+    echo -e "${BLUE}==>${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}Error:${NC} $1"
+}
+
+print_success() {
+    echo -e "${GREEN}Success:${NC} $1"
+}
+
+execute_script() {
+    local script=$1
+    local message=$2
+    
+    if [[ -f "$script" ]]; then
+        print_message "$message"
+        bash "$script"
+        if [ $? -eq 0 ]; then
+            print_success "Operation completed successfully"
+        else
+            print_error "Operation failed"
+            read -n1 -r -p "Press any key to continue..."
+        fi
+    else
+        print_error "Script not found: $script"
+        read -n1 -r -p "Press any key to continue..."
+    fi
+}
+
+###############################################################################
+# Change permissions                                                            #
 ###############################################################################
 
 for DEFAULTS_FILE in "$DOTFILES_DIR"/install/*.sh; do
@@ -28,35 +69,37 @@ for DEFAULTS_FILE in "$DOTFILES_DIR"/sh/*.sh; do
 done
 
 ###############################################################################
-# Options                                                                     #
+# Options                                                                       #
 ###############################################################################
 
 while :
 do
     clear
-    cat<<EOF
-    ###############################################################################
-    #                                                                             #
-    #  Please enter your choice:                                                  #
-    #                                                                             #
-    #  (1) Install Homebrew                                                       #
-    #  (2) Install Applications                                                   #
-    #  (3) Configure macOS                                                        #
-    #  (4) Configure extensions                                                   #
-    #  (5) Install/Configure zsh                                                  #
-    #  (0) Exit                                                                   #
-    #                                                                             #
-    ###############################################################################
+    cat << EOF
+╔════════════════════════════════════════════════════════════════════════════╗
+║                           macOS Setup Script                               ║
+╠════════════════════════════════════════════════════════════════════════════╣
+║                                                                            ║
+║  1. Install Homebrew                                                       ║
+║  2. Install Applications                                                   ║
+║  3. Configure macOS                                                        ║
+║  4. Install/Configure zsh                                                  ║
+║                                                                            ║
+║  0. Exit                                                                   ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
 EOF
-    read -n1 -s
+    read -n1 -s -r -p "Please enter your choice [0-4]: " REPLY
+    echo
+    
     case "$REPLY" in
-    "1")  echo "Installing Homebrew..."                  | $DOTFILES_DIR/install/hombrew.sh ;;
-    "2")  echo "Installing macOS's applications..."      | $DOTFILES_DIR/install/applications.sh ;;
-    "3")  echo "Configuring macOS's settings..."         | $DOTFILES_DIR/config/macos.sh ;;
-    "4")  echo "Configuring extensions..."               | $DOTFILES_DIR/config/duti/set.sh ;;
-    "5")  echo "Installing and configuring zsh..."       | $DOTFILES_DIR/zsh/zsh.sh ;;
-    "0")  exit                                                                   ;;
-     * )  echo "Oops! Invalid option!"                                                 ;;
+        "1")  execute_script "$DOTFILES_DIR/install/homebrew.sh" "Installing Homebrew..." ;;
+        "2")  execute_script "$DOTFILES_DIR/install/applications.sh" "Installing macOS applications..." ;;
+        "3")  execute_script "$DOTFILES_DIR/config/macos.sh" "Configuring macOS settings..." ;;
+        "4")  execute_script "$DOTFILES_DIR/zsh/zsh.sh" "Installing and configuring zsh..." ;;
+        "0")  echo "Goodbye!"; exit 0 ;;
+        * )   print_error "Invalid option. Please try again."
+              sleep 1 ;;
     esac
-    sleep 1
 done
